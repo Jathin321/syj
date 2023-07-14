@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        @media screen and (min-width:901px) and (max-width:1900px){
+            header {
+            width: 100%;
+            height: 50px;
+            background-color: rgb(24, 24, 90);
+            color: #fff;
+        }
+
+        nav h1 {
+            padding: 10px;
+            margin-left: 50px;
+            font-size: 30px;
+        }
+
+        .inp {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .inp input {
+            width: 600px;
+            height: 30px;
+            padding-left: 20px;
+        }
+
+        .inp button {
+            width: 90px;
+            border: solid 2px green;
+            color: green;
+            font-weight: 900;
+            background-color: #fff;
+        }
+
+        .btn:hover {
+            border: none;
+            background-color: green;
+            color: #fff;
+        }
+
+        .list {
+            width: 800px;
+            margin-top: 50px;
+            margin-left: 320px;
+        }
+
+        .list-item {
+            list-style-type: none;
+            width: 100%;
+            height: 30px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin-top: 5px;
+            display: flex;
+        }
+
+        .list-item button:hover {
+            cursor: pointer;
+        }
+
+        .list li {
+            padding: 10px;
+            height: 50px;
+            font-weight: 900;
+        }
+
+        .list li p {
+            padding: 10px;
+            width: 200px;
+        }
+
+        ul li .edit {
+            padding: 10px 40px;
+            background-color: rgb(255, 238, 0);
+            font-weight: 900;
+            border: 3px solid black;
+            border-radius: 5px;
+            margin-left: 300px;
+        }
+
+        ul li .Remove {
+            padding: 10px 40px;
+            background-color: red;
+            font-weight: 900;
+            border: 3px solid black;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        .disp {
+            margin-left: 115px;
+        }
+        .editdiv {
+            margin-left: 7px;
+            margin-top: 5px;
+            width: 200px;
+            height: 30px;
+            padding-left: 10px;
+        }
+        }
+
+        @media screen and (max-width:420px){
+            header {
+            width: 392px;
+            height: 50px;
+            background-color: rgb(24, 24, 90);
+            color: #fff;
+        }
+        nav h1 {
+            padding: 10px;
+            margin-left: 10px;
+            font-size: 20px;
+            width: 200px;
+        }
+        .inp {
+            display: flex;
+            justify-content: left;
+            margin-top: 30px;
+            width: 260px;
+        }
+        .inp input {
+            width: 180px;
+            height: 30px;
+            padding-left: 15px;
+            margin-left: 65px;
+        }
+        .inp button {
+            width: 50px;
+            border: solid 2px green;
+            color: green;
+            font-weight: 600;
+            background-color: #fff;
+            padding: 0px 9px;
+        }
+        .btn:hover {
+            border: none;
+            background-color: green;
+            color: #fff;
+        }
+        .list {
+            width: 380px;
+            margin-top: 25px;
+            margin-left: 5px;
+        }
+        .list-item {
+            list-style-type: none;
+            width: 230px;
+            height: 35px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin-top: 5px;
+            margin-left: 55px;
+            display: flex;
+        }
+        .list-item button:hover {
+            cursor: pointer;
+        }
+        .list li {
+            padding: 10px;
+            height: 35px;
+            font-weight: 300;
+            width: 230px;
+        }
+        .list li p {
+            padding-left: 10px;
+            width: 50px;
+            font-weight: 300;
+        }
+        ul li .edit {
+            background-color: rgb(255, 238, 0);
+            border: 3px solid black;
+            border-radius: 5px;
+            margin-left: 3ch;
+            margin-top: 5px;
+            font-weight: 300;
+            font-size: 10px;
+            width: 50px;
+            height: 25px;
+        }
+        ul li .Remove {
+            background-color: red;
+            border: 3px solid black;
+            border-radius: 5px;
+            margin-left: 5px;
+            margin-top: 5px;
+            font-weight: 300;
+            font-size: 10px;
+            height: 25px;
+            width: 50px;
+        }
+        .chapname{
+            width: 100px;
+        }
+        .disp {
+            margin-left: 20px;
+            font-size: small;
+        }
+        .disp h2{
+            width: 100px;
+            height: 20px;
+        }
+        .editdiv {
+            margin-left: 2px;
+            margin-top: 2px;
+            width: 100px;
+            height: 10px;
+            padding: 10px 6px;
+        }
+        .newname{
+            margin-right: 50px;
+        }
+        *{
+            width: 387px;
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>Notes</h1>
+        </nav>
+    </header>
+    <main>
+        <div class="inp">
+            <input type="text" placeholder="Add Chapter">
+            <button class="btn" id="addbtn">Add</button>
+        </div>
+        <ul class="list" id="parentlist">
+            <!-- <li class="list-item" id="innerlist">
+                <p>Item 1</p>
+                <button onclick="editchaptername(this)" class="edit">Edit</button>
+                <button onclick="removeli(this)" class="Remove">Remove</button>
+            </li> -->
+        </ul>
+    </main>
+    <script>
+        let editarea = document.getElementById('innerlist')
+        let addbtn = document.getElementById('addbtn')
+        addbtn.addEventListener('click', addchapter)
+        let parentlist = document.getElementById('parentlist')
+        function addchapter(e) {
+            if (parentlist.children[0].className == 'disp') {
+                parentlist.children[0].remove()
+            }
+            let currbtn = e.currentTarget
+            let currentinput = currbtn.previousElementSibling
+            let currentchapter = currentinput.value
+            let newlist = document.createElement('li')
+            newlist.className = 'list-item'
+            newlist.innerHTML = 
+            `   <div class="chapname">
+                <p>${currentchapter}</p>
+                </div>
+                <button onclick="editchaptername(this)" class="edit">Edit</button>
+                <button onclick="removeli(this)" class="Remove">Remove</button>`
+            parentlist.appendChild(newlist)
+        }
+        function removeli(ele) {
+            ele.parentElement.remove()
+            if (parentlist.children.length <= 0) {
+                let disp = document.createElement('h2')
+                disp.classList.add('disp')
+                disp.textContent = "Nothing to show here, Please Add a Chapter!!"
+                parentlist.appendChild(disp)
+            }
+        }
+        if (parentlist.children.length <= 0) {
+            let disp = document.createElement('h2')
+            disp.classList.add('disp')
+            disp.textContent = "Nothing to show here, Please Add a Chapter!!"
+            parentlist.appendChild(disp)
+        }
+        function editchaptername(edit) {
+            if (edit.textContent == 'Done') {
+                edit.textContent = 'Edit'
+                let newname = edit.previousElementSibling.value
+                let newinput = document.createElement('p')
+                newinput.className = "newname"
+                newinput.textContent = newname
+                edit.parentElement.replaceChild(newinput , edit.previousElementSibling)
+            }
+            else {
+                let chapname = edit.previousElementSibling.textContent
+                let currinput = document.createElement('input')
+                currinput.type = "text"
+                currinput.placeholder = "Chapter Name"
+                currinput.className = "editdiv"
+                edit.parentElement.replaceChild(currinput, edit.previousElementSibling)
+                edit.textContent = 'Done'
+            }
+        }
+    </script>
+</body>
+
+</html>
